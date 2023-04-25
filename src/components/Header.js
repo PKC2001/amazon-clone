@@ -1,7 +1,13 @@
 import Image from "next/legacy/image";
-import React from "react";
+import React, { useState } from "react";
+import {
+  MenuIcon,
+  SearchIcon,
+  ShoppingCartIcon,
+} from "@heroicons/react/outline";
 
 const Header = () => {
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <header>
       {/* Top Nav */}
@@ -16,7 +22,55 @@ const Header = () => {
             width={150}
           />
         </div>
+        {/* Search Bar */}
+        <div className="items-center flex-grow hidden h-10 bg-yellow-400 rounded-md cursor-pointer sm:flex hover:bg-yellow-500">
+          <input
+            className="flex-grow flex-shrink w-6 h-full p-2 px-4 focus:outline-none rounded-l-md"
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <SearchIcon className="h-12 p-4" />
+        </div>
+        <div className="flex items-center mx-6 space-x-6 text-xs text-white whitespace-nowrap">
+          <div className="link">
+            <p>Hello Pranav</p>
+            <p className="font-extrabold md:text-sm">Accounts & Lists</p>
+          </div>
+          <div className="link">
+            <p>Returns</p>
+            <p className="font-extrabold md:text-sm">&Orders</p>
+          </div>
+          <div className="relative flex items-center link">
+            <span className="absolute top-0 right-0 w-4 h-4 font-bold text-center text-black bg-yellow-400 rounded-full md:right-10">
+              0
+            </span>
+            <ShoppingCartIcon className="h-10" />
+            <p className="hidden mt-2 font-extrabold md:inline md:text-sm">
+              Basket
+            </p>
+          </div>
+        </div>
       </div>
+      {/* Bottom Nav */}
+      <div className="flex items-center p-2 pl-6 space-x-3 text-xs text-white bg-amazon_blue-light font-semi-bold">
+        {/* <MenuIcon className="w-4 h-4 ml-6 font-bold text-white cursor-pointer hover:scale-110" />
+        <div className="text-xs text-white lg:inline-flex lg:text-xs lg:space-x-3 "> */}
+        <p className="flex items-center link">
+          <MenuIcon className="h-6 mr-1" />
+          All
+        </p>
+        <p className="link">Prime Video</p>
+        <p className="link">Amazon Bussiness</p>
+        <p className="link">Today's Deals</p>
+        <p className="hidden link lg:inline">Electonics</p>
+        <p className="hidden link lg:inline">Food & Grocery</p>
+        <p className="hidden link lg:inline">Prime</p>
+        <p className="hidden link lg:inline">Buy Again</p>
+        <p className="hidden link lg:inline">Shopper Toolkit</p>
+        <p className="hidden link lg:inline">Health & Personal Care</p>
+      </div>
+      {/* </div> */}
     </header>
   );
 };
