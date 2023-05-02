@@ -23,7 +23,7 @@ const Product = ({category, description, id, image, price, rating, title}) => {
         width={200}
         objectFit='contain'
         />
-        <h4 my-3>{title}</h4>
+        <h4 className="my-3">{title}</h4>
         <div className='flex'>
             {Array(Math.round(rating.rate)).fill().map((_, i) => (<StarIcon className='h-5 text-yellow-500' />))}
         </div>

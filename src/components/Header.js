@@ -15,7 +15,7 @@ const Header = () => {
   const session = useSession();
   const [searchTerm, setSearchTerm] = useState("");
   const items = useSelector(selectItems);
-  console.log(items)
+  // console.log(items) //------------------
 
   return (
     <header>
